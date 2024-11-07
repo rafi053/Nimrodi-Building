@@ -24,10 +24,8 @@ const floorSlice = createSlice({
   reducers: {
     changeAccess(state, action: PayloadAction<number>) {
       const floorId = action.payload;
-      const floor = state.floorAccess.floorAccess.find((floor) => floor.id === floorId);
-      if (floor) {
-        floor.floorAccess = !floor.floorAccess;
-      }
+      const floor = state.floorAccess.floorAccess[floorId];
+      state.floorAccess.floorAccess[floorId] = !floor;
     },
   },
 });
